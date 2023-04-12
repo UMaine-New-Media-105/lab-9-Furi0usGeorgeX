@@ -7,7 +7,6 @@ function setup() {
     let ballX = random(width);
     let ballY = random(height);
     let ballHue = random(360);
-
     ballList[ballsDrawn] = new ball(ballX, ballY, ballHue);
   }
 }
@@ -25,14 +24,14 @@ class ball {
     this.x = x;
     this.y = y;
     this.color = "hsla(" + parseInt(hue) + ", 100%, 50%, 1)";
-    this.addX = 5;
+    this.addX = random(1-5);
   }
   move() {
     this.x = this.x + this.addX;
     this.y = this.y;
-    let dotIsTooFarLeft = this.x < 0;
-    let dotIsTooFarRight = this.x > width;
-    if (dotIsTooFarLeft || dotIsTooFarRight) {
+    let ballIsTooFarLeft = this.x < 0;
+    let ballIsTooFarRight = this.x > width;
+    if (ballIsTooFarLeft || ballIsTooFarRight) {
       this.addX = -this.addX;
     }
   }
